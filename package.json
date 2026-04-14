@@ -1,0 +1,51 @@
+{
+  "name": "nhqualitycampaign",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "prisma generate && next build",
+    "start": "next start",
+    "lint": "next lint",
+    "postinstall": "prisma generate",
+    "db:push": "prisma db push",
+    "db:seed": "tsx prisma/seed.ts",
+    "db:studio": "prisma studio"
+  },
+  "dependencies": {
+    "@prisma/client": "^5.22.0",
+    "@tiptap/extension-image": "^2.10.3",
+    "@tiptap/extension-link": "^2.10.3",
+    "@tiptap/extension-table": "^2.10.3",
+    "@tiptap/extension-table-cell": "^2.10.3",
+    "@tiptap/extension-table-header": "^2.10.3",
+    "@tiptap/extension-table-row": "^2.10.3",
+    "@tiptap/pm": "^2.10.3",
+    "@tiptap/react": "^2.10.3",
+    "@tiptap/starter-kit": "^2.10.3",
+    "bcryptjs": "^2.4.3",
+    "class-variance-authority": "^0.7.1",
+    "clsx": "^2.1.1",
+    "lucide-react": "^0.460.0",
+    "next": "^16.2.3",
+    "next-auth": "^4.24.10",
+    "react": "^19.2.5",
+    "react-dom": "^19.2.5",
+    "tailwind-merge": "^2.5.4",
+    "zod": "^3.23.8"
+  },
+  "devDependencies": {
+    "@types/bcryptjs": "^2.4.6",
+    "@types/node": "^22.9.3",
+    "@types/react": "^19.2.14",
+    "@types/react-dom": "^19.2.3",
+    "autoprefixer": "^10.4.20",
+    "eslint": "^8.57.1",
+    "eslint-config-next": "^16.2.3",
+    "postcss": "^8.4.49",
+    "prisma": "^5.22.0",
+    "tailwindcss": "^3.4.15",
+    "tsx": "^4.19.2",
+    "typescript": "^5.7.2"
+  }
+}

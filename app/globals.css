@@ -1,0 +1,49 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  color-scheme: light;
+}
+
+html {
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+body {
+  color: theme('colors.brand.ink');
+  background-color: #ffffff;
+  font-size: 16px;
+  line-height: 1.6;
+}
+
+.prose-article h2 {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: theme('colors.brand.navy');
+  margin-top: 1.75rem;
+  margin-bottom: 0.75rem;
+}
+.prose-article h3 {
+  font-size: 1.2rem;
+  font-weight: 600;
+  margin-top: 1.25rem;
+  margin-bottom: 0.5rem;
+}
+.prose-article p { margin: 0.75rem 0; }
+.prose-article ul { list-style: disc; padding-left: 1.5rem; margin: 0.75rem 0; }
+.prose-article ol { list-style: decimal; padding-left: 1.5rem; margin: 0.75rem 0; }
+.prose-article a { color: theme('colors.brand.teal'); text-decoration: underline; }
+.prose-article table { width: 100%; border-collapse: collapse; margin: 1rem 0; }
+.prose-article table th, .prose-article table td { border: 1px solid #e5e7eb; padding: 0.5rem; }
+
+.btn-primary {
+  background-color: theme('colors.brand.teal');
+  color: white;
+  padding: 0.625rem 1.25rem;
+  border-radius: 0.375rem;
+  font-weight: 600;
+  display: inline-block;
+}
+.btn-primary:hover { background-color: #0a6456; }
