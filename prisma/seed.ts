@@ -1,6 +1,10 @@
 import { PrismaClient } from '@prisma/client'
 import bcrypt from 'bcryptjs'
 import { seedPages, adSlots } from './content'
+import { EXPANDED } from './content-expanded'
+import { EXPANDED_2 } from './content-expanded-2'
+
+const EXPANSIONS = [...EXPANDED, ...EXPANDED_2]
 
 const prisma = new PrismaClient()
 
@@ -38,14 +42,17 @@ async function main() {
   console.log(`Ad slots: ${adSlots.length}`)
 
   for (const p of seedPages) {
-    await prisma.page.upsert({
+    const overlay = EXPANSIONS.find((e) => e.path === p.path)
+    const content = overlay?.content ?? p.content
+    const faq = overlay?.faq ?? p.faq
+    const page = await prisma.page.upsert({
       where: { path: p.path },
       update: {
         title: p.title,
         metaTitle: p.metaTitle,
         metaDesc: p.metaDesc,
         quickAnswer: p.quickAnswer,
-        content: p.content,
+        content,
         pageType: p.pageType as any,
         cluster: p.cluster as any,
         status: 'PUBLISHED',
@@ -59,19 +66,21 @@ async function main() {
         metaTitle: p.metaTitle,
         metaDesc: p.metaDesc,
         quickAnswer: p.quickAnswer,
-        content: p.content,
+        content,
         pageType: p.pageType as any,
         cluster: p.cluster as any,
         status: 'PUBLISHED',
         publishedAt: new Date(),
         authorId: admin.id,
-        faq: {
-          create: p.faq.map((f, i) => ({ question: f.question, answer: f.answer, sortOrder: i })),
-        },
       },
     })
+    // Replace FAQ rows so expanded FAQ sets apply
+    await prisma.faq.deleteMany({ where: { pageId: page.id } })
+    await prisma.faq.createMany({
+      data: faq.map((f, i) => ({ pageId: page.id, question: f.question, answer: f.answer, sortOrder: i })),
+    })
   }
-  console.log(`Pages: ${seedPages.length}`)
+  console.log(`Pages: ${seedPages.length} (${EXPANSIONS.length} expanded)`)
 }
 
 main()
