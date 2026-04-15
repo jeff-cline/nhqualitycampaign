@@ -6,7 +6,10 @@ import { EXPANDED_2 } from './content-expanded-2'
 
 const EXPANSIONS = [...EXPANDED, ...EXPANDED_2]
 
-const prisma = new PrismaClient()
+// Seed uses direct (session-pooler) URL to avoid pgbouncer prepared-statement issues
+const prisma = new PrismaClient({
+  datasources: { db: { url: process.env.DIRECT_URL ?? process.env.DATABASE_URL! } },
+})
 
 async function main() {
   const email = process.env.SEED_ADMIN_EMAIL ?? 'admin@nhqualitycampaign.org'
