@@ -4,6 +4,10 @@ import { STATES, stateSlug } from '@/data/states'
 import { CARRIERS } from '@/data/carriers'
 import { CONDITIONS } from '@/data/conditions'
 import { GLOSSARY } from '@/data/glossary'
+import { PART_D } from '@/data/partD'
+import { BEST } from '@/data/best'
+import { MEDICAID_LTC } from '@/data/medicaidLtc'
+import { LIFE_EVENTS } from '@/data/lifeEvents'
 
 export const dynamic = 'force-dynamic'
 
@@ -63,10 +67,33 @@ export async function GET() {
   for (const g of GLOSSARY) lines.push(`- [${g.term}](${SITE_URL}/glossary/${g.slug}/) — ${g.definition}`)
   lines.push('')
 
-  lines.push('## Tools')
+  lines.push('## Part D Deep Dive')
+  lines.push('')
+  for (const t of PART_D) lines.push(`- [${t.title}](${SITE_URL}/medicare/part-d/${t.slug}/) — ${t.quickAnswer}`)
+  lines.push('')
+
+  lines.push('## Best Of Rankings')
+  lines.push('')
+  for (const b of BEST) lines.push(`- [${b.title}](${SITE_URL}/best/${b.slug}/) — ${b.quickAnswer}`)
+  lines.push('')
+
+  lines.push('## Medicaid Long-Term Care')
+  lines.push('')
+  for (const m of MEDICAID_LTC) lines.push(`- [${m.title}](${SITE_URL}/medicaid/${m.slug}/) — ${m.quickAnswer}`)
+  lines.push('')
+
+  lines.push('## Life-Event Playbooks')
+  lines.push('')
+  for (const e of LIFE_EVENTS) lines.push(`- [${e.title}](${SITE_URL}/life-events/${e.slug}/) — ${e.quickAnswer}`)
+  lines.push('')
+
+  lines.push('## Tools & Data')
   lines.push(`- [Medicare Cost Calculator](${SITE_URL}/tools/medicare-cost-calculator/)`)
+  lines.push(`- [Medigap Premium Estimator](${SITE_URL}/tools/medigap-premium-estimator/)`)
   lines.push(`- [IRMAA Calculator](${SITE_URL}/tools/irmaa-calculator/)`)
+  lines.push(`- [Enrollment Period Finder](${SITE_URL}/tools/enrollment-period-finder/)`)
   lines.push(`- [Nursing Home Cost & Medicaid Burn-Down](${SITE_URL}/tools/nursing-home-cost-calculator/)`)
+  lines.push(`- [Data Hub](${SITE_URL}/data/)`)
   lines.push('')
 
   return new Response(lines.join('\n'), { headers: { 'Content-Type': 'text/plain; charset=utf-8' } })

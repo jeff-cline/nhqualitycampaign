@@ -3,7 +3,9 @@ import { Breadcrumb } from '@/components/site/Breadcrumb'
 
 const TOOLS = [
   { slug: 'medicare-cost-calculator', name: 'Medicare Cost Calculator', desc: 'Compare Original Medicare + Medigap vs Medicare Advantage annual cost.' },
+  { slug: 'medigap-premium-estimator', name: 'Medigap Premium Estimator', desc: 'Estimate Plan G / N / HD-G by state and age.' },
   { slug: 'irmaa-calculator', name: 'IRMAA Surcharge Estimator', desc: 'Estimate your income-related Part B and Part D surcharges.' },
+  { slug: 'enrollment-period-finder', name: 'Enrollment Period Finder', desc: 'Enter your DOB to see IEP, Medigap OEP, and key deadlines.' },
   { slug: 'nursing-home-cost-calculator', name: 'Nursing Home Cost & Medicaid Burn-Down', desc: 'Project how long savings last paying for long-term care.' },
 ]
 

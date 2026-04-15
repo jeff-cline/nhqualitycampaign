@@ -33,6 +33,10 @@ export function Footer() {
             <li><Link href="/senior-care/aging-in-place/">Senior Care</Link></li>
             <li><Link href="/healthcare-quality/">Healthcare Quality</Link></li>
             <li><Link href="/telehealth/medicare-telehealth-guide/">Telehealth</Link></li>
+            <li><Link href="/medicare/part-d/">Part D</Link></li>
+            <li><Link href="/medicaid/">Medicaid LTC</Link></li>
+            <li><Link href="/life-events/">Life Events</Link></li>
+            <li><Link href="/best/">Best Of Rankings</Link></li>
             <li><Link href="/senior-finance/medicare-costs/">Senior Finance</Link></li>
           </ul>
         </div>
@@ -40,6 +44,7 @@ export function Footer() {
           <div className="font-semibold mb-2">Resources</div>
           <ul className="space-y-1 text-white/80">
             <li><Link href="/tools/">Calculators</Link></li>
+            <li><Link href="/data/">Data Hub</Link></li>
             <li><Link href="/glossary/">Glossary</Link></li>
             <li><Link href="/faq/">FAQ</Link></li>
             <li><Link href="/blog/">Blog</Link></li>

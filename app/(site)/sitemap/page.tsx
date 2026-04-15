@@ -3,6 +3,10 @@ import { STATES, stateSlug } from '@/data/states'
 import { CARRIERS } from '@/data/carriers'
 import { CONDITIONS } from '@/data/conditions'
 import { GLOSSARY } from '@/data/glossary'
+import { PART_D } from '@/data/partD'
+import { BEST } from '@/data/best'
+import { MEDICAID_LTC } from '@/data/medicaidLtc'
+import { LIFE_EVENTS } from '@/data/lifeEvents'
 import { Breadcrumb } from '@/components/site/Breadcrumb'
 
 export const metadata = {
@@ -94,6 +98,52 @@ export default function Sitemap() {
         <h2 className="text-xl font-bold text-brand-navy mb-2">State Assisted Living Guides ({STATES.length})</h2>
         <ul className="grid md:grid-cols-3 gap-1 text-sm">
           {STATES.map((s) => <Item key={s.code} href={`/senior-care/${stateSlug(s)}/assisted-living/`}>{s.name}</Item>)}
+        </ul>
+      </section>
+
+      <section className="mb-8">
+        <h2 className="text-xl font-bold text-brand-navy mb-2">Part D Deep Dive ({PART_D.length})</h2>
+        <ul className="grid md:grid-cols-2 gap-1 text-sm">
+          {PART_D.map((t) => <Item key={t.slug} href={`/medicare/part-d/${t.slug}/`}>{t.title}</Item>)}
+        </ul>
+      </section>
+
+      <section className="mb-8">
+        <h2 className="text-xl font-bold text-brand-navy mb-2">Best Of Rankings ({BEST.length})</h2>
+        <ul className="grid md:grid-cols-2 gap-1 text-sm">
+          {BEST.map((b) => <Item key={b.slug} href={`/best/${b.slug}/`}>{b.title}</Item>)}
+        </ul>
+      </section>
+
+      <section className="mb-8">
+        <h2 className="text-xl font-bold text-brand-navy mb-2">Medicaid Long-Term Care ({MEDICAID_LTC.length})</h2>
+        <ul className="grid md:grid-cols-2 gap-1 text-sm">
+          {MEDICAID_LTC.map((m) => <Item key={m.slug} href={`/medicaid/${m.slug}/`}>{m.title}</Item>)}
+        </ul>
+      </section>
+
+      <section className="mb-8">
+        <h2 className="text-xl font-bold text-brand-navy mb-2">Life-Event Playbooks ({LIFE_EVENTS.length})</h2>
+        <ul className="grid md:grid-cols-2 gap-1 text-sm">
+          {LIFE_EVENTS.map((e) => <Item key={e.slug} href={`/life-events/${e.slug}/`}>{e.title}</Item>)}
+        </ul>
+      </section>
+
+      <section className="mb-8">
+        <h2 className="text-xl font-bold text-brand-navy mb-2">Data Hub</h2>
+        <ul className="grid md:grid-cols-2 gap-1 text-sm">
+          <Item href="/data/">State-by-state charts</Item>
+        </ul>
+      </section>
+
+      <section className="mb-8">
+        <h2 className="text-xl font-bold text-brand-navy mb-2">Calculators ({5})</h2>
+        <ul className="grid md:grid-cols-2 gap-1 text-sm">
+          <Item href="/tools/medicare-cost-calculator/">Medicare Cost Calculator</Item>
+          <Item href="/tools/medigap-premium-estimator/">Medigap Premium Estimator</Item>
+          <Item href="/tools/irmaa-calculator/">IRMAA Surcharge Estimator</Item>
+          <Item href="/tools/enrollment-period-finder/">Enrollment Period Finder</Item>
+          <Item href="/tools/nursing-home-cost-calculator/">Nursing Home Cost Calculator</Item>
         </ul>
       </section>
 
